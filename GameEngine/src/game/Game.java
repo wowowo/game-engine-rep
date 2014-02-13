@@ -27,13 +27,8 @@ public class Game {
 		window.pack();
 		window.setVisible(true);
 		window.setLocationRelativeTo(null);
-		
-		System.out.println("testing reverting");
-		System.out.println("testing reverting");
-		System.out.println("testing reverting");
-		System.out.println("testing reverting");
 
-
+		System.out.println("testing revert");
 	}
 
 }
