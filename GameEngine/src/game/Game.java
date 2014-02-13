@@ -28,10 +28,10 @@ public class Game {
 		window.setVisible(true);
 		window.setLocationRelativeTo(null);
 		
-		System.out.println("test commit");
-		System.out.println("test commit");
-
-		System.out.println("test commit");
+		System.out.println("testing reverting");
+		System.out.println("testing reverting");
+		System.out.println("testing reverting");
+		System.out.println("testing reverting");
 
 
 	}
