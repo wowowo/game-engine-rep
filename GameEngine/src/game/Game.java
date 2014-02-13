@@ -29,6 +29,10 @@ public class Game {
 		window.setLocationRelativeTo(null);
 		
 		System.out.println("test commit");
+		System.out.println("test commit");
+
+		System.out.println("test commit");
+
 
 	}
 
