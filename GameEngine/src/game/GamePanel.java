@@ -83,8 +83,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	 * not know how it works extensively
 	 */
 	private void drawToScreen() {
-		Graphics g2 = getGraphics();
-		g2.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
+		Graphics g2 = this.getGraphics();
+		g2.drawImage(image, 0, 0, WIDTH * 2, HEIGHT * 2, null);
 		g2.dispose();
 	}
 
@@ -93,7 +93,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	 */
 	public void init() {
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-		g = (Graphics2D) image.getGraphics();
+		g = image.createGraphics();
 		running = true;
 		gm = new GameMaster();
 	}
