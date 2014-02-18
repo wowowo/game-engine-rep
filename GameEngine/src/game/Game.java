@@ -27,6 +27,8 @@ public class Game {
 		window.pack();
 		window.setVisible(true);
 		window.setLocationRelativeTo(null);
+		
+		System.out.println("working at at last");
 
 	}
 
