@@ -14,6 +14,12 @@ import entity.Entity;
 import maps.Background;
 import maps.TileMap;
 
+/**
+ * Generic battle, might become abstract later on
+ * needs turn mechanics. Animations only change x coord!
+ * @author User
+ *
+ */
 public class BattleMode extends GameState {
 
 	private Background bg;
@@ -29,6 +35,13 @@ public class BattleMode extends GameState {
 	private ArrayList<String> fnames = new ArrayList<String>();
 	private ArrayList<String> enames = new ArrayList<String>();
 
+	/**
+	 * Set up everything, not dependent on number of
+	 * entities on map
+	 * @param gm
+	 * @param friendlies
+	 * @param enemies
+	 */
 	public BattleMode(GameMaster gm, ArrayList<Pokemon> friendlies,
 			ArrayList<Pokemon> enemies) {
 
@@ -41,6 +54,10 @@ public class BattleMode extends GameState {
 
 	}
 
+	/**
+	 * set up the entities
+	 * set the available options to the names of the player's monsters
+	 */
 	private void setUpMonsters() {
 
 		for (int i = 0; i < enemies.size(); i++) {
@@ -57,7 +74,9 @@ public class BattleMode extends GameState {
 
 	}
 
-	@Override
+	/**
+	 *  testing player movement and actions
+	 */
 	public void update() {
 
 		for (int i = 0; i < enemies.size(); i++) {
@@ -66,14 +85,21 @@ public class BattleMode extends GameState {
 		}
 
 		for (int i = 0; i < friendlies.size(); i++) {
+			
 			if (!friendlies.get(i).inAction())
 				friendlies.get(i).setPosition(300, 10 + i*70);
+			
 			friendlies.get(i).update();
 		}
 
 	}
 
-	@Override
+	/**
+	 * draw the background;
+	 * draw each enemy and player monster
+	 * then draw the available options to the player
+	 * in the corresponding position
+	 */
 	public void draw(Graphics2D g) {
 
 		bg.drawStatic(g);
@@ -84,16 +110,29 @@ public class BattleMode extends GameState {
 		for (int i = 0; i < friendlies.size(); i++)
 			friendlies.get(i).draw(g);
 
+		/**
+		 * draw  a gray rectangle, later we should change it to a dialog box
+		 */
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 180, 400, 200);
 
 		g.setColor(Color.WHITE);
 
+		/**
+		 * if the player does not attack
+		 * draw on the right side of the screen
+		 */
 		int x = 250;
 
+		/**
+		 * otherwise draw them on the left
+		 */
 		if (inBattle)
 			x = 0;
 
+		/**
+		 * draw the highlited option in red. the rest in white
+		 */
 		for (int i = 0; i < options.size(); i++) {
 			if (currentChoice == i) {
 				g.setColor(Color.RED);
@@ -108,7 +147,9 @@ public class BattleMode extends GameState {
 
 	}
 
-	@Override
+	/**
+	 * read current key
+	 */
 	public void keyPressed(int k) {
 
 		if (k == KeyEvent.VK_ENTER)
@@ -125,8 +166,15 @@ public class BattleMode extends GameState {
 
 	}
 
+	/**
+	 * if enter is pressed
+	 */
 	private void select() {
 
+		/**
+		 * if player selected a monster, the next iteration draw its attacks
+		 * remember the monster in currentChoice
+		 */
 		if (!inBattle && !inAction) {
 
 			chosen = currentChoice;
@@ -137,6 +185,10 @@ public class BattleMode extends GameState {
 
 		}
 
+		/**
+		 * if attack is selected, give player options 
+		 * to chose an enemy to attack
+		 */
 		else if (inAction) {
 
 			action = currentChoice;
@@ -146,6 +198,10 @@ public class BattleMode extends GameState {
 			options = enames;
 		}
 
+		/**
+		 * if an enemy to attack is selected
+		 * reset all, and initialize attack animation
+		 */
 		else if (inBattle) {
 
 			inAction = false;

@@ -33,7 +33,7 @@ public class GameMaster {
 
 		currentState = 0;
 		gameStates.add(new InitialMenu(this));
-		gameStates.add(new LevelOneState(this));
+		gameStates.add(new TestLevel(this));
 		
 		ArrayList<Pokemon> a = new ArrayList<>();
 		ArrayList<Pokemon> b = new ArrayList<>();

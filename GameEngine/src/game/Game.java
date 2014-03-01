@@ -1,11 +1,11 @@
 package game;
 
-import java.awt.Canvas;
-
 import javax.swing.JFrame;
 
 /**
- * This basically create a JFrame(a container window) and adds the game panel,
+ * The design is based on Killer Game Programming with Java by Andrew Davison. Copyright 2005 O’Reilly Media, Inc., 0-596-00730-2.
+ * the resources are from a youtube game video
+ * This basically create a JFrame(container window) and adds the game panel,
  * the thing that actually does all the work
  * 
  * @author User
@@ -28,9 +28,6 @@ public class Game {
 		window.setVisible(true);
 		window.setLocationRelativeTo(null);
 		
-		System.out.println("working at at last");
-
-		System.out.println("testing revert");
 	}
 
 }

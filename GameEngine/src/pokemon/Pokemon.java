@@ -5,7 +5,11 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import entity.Animation;
 
-
+/**
+ * generic pokemon superclass
+ * @author User
+ *
+ */
 public abstract class Pokemon {
 
 	protected double x, y;

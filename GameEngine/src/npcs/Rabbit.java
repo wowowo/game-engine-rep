@@ -88,6 +88,7 @@ public class Rabbit extends NPC {
 
 	/**
 	 * need reworking the not on screen
+	 * dont use it
 	 * 
 	 */
 	public void draw(Graphics2D g) {

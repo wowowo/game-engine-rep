@@ -2,6 +2,11 @@ package pokemon;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * generic class will be abstract in future
+ * @author User
+ *
+ */
 public class Attack {
 	
 	private String name = " asd";

@@ -11,6 +11,9 @@ import entity.Animation;
 
 public class Pikachu extends Pokemon {
 
+	/**
+	 * load animations and attacks
+	 */
 	public Pikachu() {
 		
 		setName("Pikachu");
@@ -72,7 +75,10 @@ public class Pikachu extends Pokemon {
 	public void update() {
 		
 
-		
+		/**
+		 * if the monster is in action move to the left
+		 * if the animation has ended start the idle animation
+		 */
 		if(inAction && animation.hasPlayedOnce()) {
 			inAction = false;
 			animation.setFrames(sprites.get(0));
@@ -92,7 +98,9 @@ public class Pikachu extends Pokemon {
 		return name;
 	}
 
-	@Override
+	/**
+	 * start the attack animation
+	 */
 	public void attack(int a) {
 
 		inAction = true;

@@ -20,7 +20,7 @@ import game.GamePanel;
  * @author User
  *
  */
-public class LevelOneState extends GameState {
+public class TestLevel extends GameState {
 
 	private TileMap tileMap;
 	private maps.Background bg;
@@ -38,7 +38,7 @@ public class LevelOneState extends GameState {
 	 * Constructor
 	 * @param gm - this level's game master
 	 */
-	public LevelOneState(GameMaster gm){
+	public TestLevel(GameMaster gm){
 		this.gm = gm;
 		init();
 	}
@@ -62,6 +62,9 @@ public class LevelOneState extends GameState {
 
 	}
 	
+	/**
+	 * used to reload state
+	 */
 	public void save() {
 		
 		tilemapX = tileMap.getX();
@@ -75,6 +78,9 @@ public class LevelOneState extends GameState {
 
 	}
 	
+	/**
+	 * used to reload state
+	 */
 	public void load() {
 		
 		tileMap.setPosition(tilemapX, tilemapY);
